@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  proxy:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - BACKEND_URL=http://backend:80
+      - BACKEND_TIMEOUT=30
+      - PORT=8000
+    depends_on:
+      - backend
+    networks:
+      - proxy-network
+
+  backend:
+    # This is a mock backend for testing
+    image: kennethreitz/httpbin
+    ports:
+      - "81:80"
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    driver: bridge
