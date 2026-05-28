@@ -32,7 +32,7 @@ app.add_middleware(
 )
 
 # Configuration from environment variables
-BACKEND_URL = os.getenv("BACKEND_URL", "http://159.195.146.143:81")
+BACKEND_URL = os.getenv("BACKEND_URL", "http://152.53.127.169:81")
 BACKEND_TIMEOUT = int(os.getenv("BACKEND_TIMEOUT", "30"))
 
 # Remove trailing slash from backend URL if present
